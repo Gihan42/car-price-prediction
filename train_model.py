@@ -12,9 +12,9 @@ csv_path = os.path.join(BASE_DIR, 'app', 'dataset', 'train.csv')
 
 try:
     train_df = pd.read_csv(csv_path)
-    print("✅ Dataset loaded successfully.")
+    print("Dataset loaded successfully.")
 except FileNotFoundError:
-    print(f"❌ File not found: {csv_path}")
+    print(f" File not found: {csv_path}")
     exit(1)
 
 
