@@ -42,7 +42,7 @@ OH_X.index = X.index
 X_num = X[numerical_cols]
 X_final = pd.concat([X_num, OH_X], axis=1)
 
-# ✅ Ensure all column names are strings
+# Ensure all column names are strings
 X_final.columns = X_final.columns.astype(str)
 
 
@@ -59,4 +59,12 @@ joblib.dump(encoder, os.path.join(artifacts_path, "encoder.pkl"))
 joblib.dump(numerical_cols, os.path.join(artifacts_path, "numerical_cols.pkl"))
 joblib.dump(categorical_cols, os.path.join(artifacts_path, "categorical_cols.pkl"))
 
-print("✅ Model and encoder saved to 'artifacts/' folder.")
+#print accuracy
+train_accuracy = model.score(X_train, y_train)
+valid_accuracy = model.score(X_valid, y_valid)
+
+print(f"Training Accuracy: {train_accuracy:.4f}")
+print(f"Validation Accuracy: {valid_accuracy:.4f}")
+
+
+print("Model and encoder saved to 'artifacts/' folder.")
