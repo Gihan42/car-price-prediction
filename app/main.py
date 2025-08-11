@@ -23,9 +23,7 @@ def predict(data: CarFeatures):
     price = predict_price(data.dict())
     return PricePrediction(predicted_price=price)
 
-@app.on_event("startup")
-def train_model():
-    print(f"Training Accuracy: {model.score(X_train, y_train) * 100}%")
+
 
 
 
